@@ -2,6 +2,9 @@
   <div class="absolute inset-0 flex items-center justify-center">
     <div class="bg-white p-6 w-96 shadow-lg rounded-sm">
       <form>
+        <p class="text-red-500 text-end text-xs">
+          {{ storeForm.loginError.emailOrPassword }}
+        </p>
         <div class="mb-6">
           <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
           <input
@@ -39,6 +42,11 @@
 
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { useCounterStore } from "../store/index";
+const storeForm = useCounterStore();
+
+const router = useRouter();
 
 const emailRef = ref("");
 const emailError = ref("");
@@ -46,7 +54,6 @@ const passwordRef = ref("");
 const passwordError = ref("");
 
 const handleForm = () => {
-  console.log(emailRef.value.split("").find((val) => val !== "@"));
   if (passwordRef.value.length < 8) {
     return (passwordError.value = "password must contain at least 8 characters.");
   }
@@ -54,13 +61,14 @@ const handleForm = () => {
     return (emailError.value = "Email tayping error.");
   }
 
-  this.$router.push("/");
-  emailRef.value = "";
-  emailError.value = "";
-  passwordRef.value = "";
-  passwordError.value = "";
-
-  console.log(emailRef.value);
-  console.log(passwordRef.value);
+  storeForm.userList.map((val) => {
+    if (val.email === emailRef.value && val.password === passwordRef.value) {
+      storeForm.user = val;
+      storeForm.loginError.emailOrPassword = "";
+      router.push("/");
+    } else {
+      storeForm.loginError.emailOrPassword = "email or password error";
+    }
+  });
 };
 </script>

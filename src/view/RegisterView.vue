@@ -106,16 +106,14 @@ const isConfirmRefShow = ref(false);
 const handleForm = () => {
   window.user = emailRef.value;
   const redirectPath = route.query.redirect || "/";
-  // router.push(redirectPath);
+  router.push(redirectPath);
 
   storeForm.user = {
     name: nameRef.value,
     email: emailRef.value,
     password: passwordRef.value,
   };
-  storeForm.userList.push(storeForm.user);
 
-  console.log(storeForm.user);
-  console.log(storeForm.userList);
+  storeForm.userList.push(storeForm.user);
 };
 </script>

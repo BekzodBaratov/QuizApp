@@ -2,11 +2,9 @@ import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-
   scrollBehavior() {
     return { top: 0 };
   },
-
   routes: [
     {
       path: "/",
@@ -14,8 +12,8 @@ const router = createRouter({
       component: () => import("../view/HomeView.vue"),
     },
     {
-      path: "/users",
-      name: "users",
+      path: "/usersList",
+      name: "usersList",
       component: () => import("../view/UserListView.vue"),
     },
     {
@@ -27,6 +25,11 @@ const router = createRouter({
       path: "/register",
       name: "register",
       component: () => import("../view/RegisterView.vue"),
+    },
+    {
+      path: "/editUser",
+      name: "Edit",
+      component: () => import("../view/EditView.vue"),
     },
   ],
 });

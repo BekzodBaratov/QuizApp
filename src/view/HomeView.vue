@@ -1,7 +1,8 @@
 <template>
   <HeaderCompVue />
-  <!-- {{ storeForm.user }} -->
+
   <HeadingCompVue v-if="!Boolean(storeForm.user.name)" />
+
   <QuizzAppCompVue v-else />
 
   <RouterView />

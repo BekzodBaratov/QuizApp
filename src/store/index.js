@@ -4,7 +4,8 @@ export const useCounterStore = defineStore("counter", {
   state: () => {
     return {
       isAuthenticated: false,
-      user: { name: "Bekzod", email: "bek@gmail.com", password: "bekzod8888" }, // default user: {}
+      user: {}, // default user: {}
+      // user: { name: "Bekzod", email: "bek@gmail.com", password: "bekzod8888" }, // default user: {}
       userList: [
         { name: "Bekzod", email: "bek@gmail.com", password: "bekzod8888" },
         { name: "Valisher", email: "valisher@gmail.com", password: "valisher8888" },
@@ -64,40 +65,42 @@ export const useCounterStore = defineStore("counter", {
           { question: "loremWritten5", answer: "written5", variant: [], questionType: "custom" },
         ],
       },
-      randomQuiz: [
-        { question: "lorem1", answer: "ans1", variant: ["ans1", "ans2", "ans3", "ans4"], questionType: "single" },
-        { question: "lorem2", answer: "ans2", variant: ["ans1", "ans2", "ans3", "ans4"], questionType: "single" },
-        { question: "lorem3", answer: "ans3", variant: ["ans1", "ans2", "ans3", "ans4"], questionType: "single" },
-        { question: "lorem4", answer: "ans4", variant: ["ans1", "ans2", "ans3", "ans4"], questionType: "single" },
-        {
-          question: "loremMulti12",
-          answer: ["answer1", "answer2"],
-          variant: ["answer1", "answer2", "answer3", "answer4"],
-          questionType: "multiple",
-        },
-        {
-          question: "loremMulti23",
-          answer: ["answer2", "answer3"],
-          variant: ["answer1", "answer2", "answer3", "answer4"],
-          questionType: "multiple",
-        },
-        {
-          question: "loremMulti34",
-          answer: ["answer3", "answer4"],
-          variant: ["answer1", "answer2", "answer3", "answer4"],
-          questionType: "multiple",
-        },
-        {
-          question: "loremMulti14",
-          answer: ["answer1", "answer4"],
-          variant: ["answer1", "answer2", "answer3", "answer4"],
-          questionType: "multiple",
-        },
-        { question: "loremWritten1", answer: "written1", variant: [], questionType: "custom" },
-        { question: "loremWritten2", answer: "written2", variant: [], questionType: "custom" },
-      ], // default randomQuiz: []
+      randomQuiz: [],
+      // randomQuiz: [
+      //   { question: "lorem1", answer: "ans1", variant: ["ans1", "ans2", "ans3", "ans4"], questionType: "single" },
+      //   { question: "lorem2", answer: "ans2", variant: ["ans1", "ans2", "ans3", "ans4"], questionType: "single" },
+      //   { question: "lorem3", answer: "ans3", variant: ["ans1", "ans2", "ans3", "ans4"], questionType: "single" },
+      //   { question: "lorem4", answer: "ans4", variant: ["ans1", "ans2", "ans3", "ans4"], questionType: "single" },
+      //   {
+      //     question: "loremMulti12",
+      //     answer: ["answer1", "answer2"],
+      //     variant: ["answer1", "answer2", "answer3", "answer4"],
+      //     questionType: "multiple",
+      //   },
+      //   {
+      //     question: "loremMulti23",
+      //     answer: ["answer2", "answer3"],
+      //     variant: ["answer1", "answer2", "answer3", "answer4"],
+      //     questionType: "multiple",
+      //   },
+      //   {
+      //     question: "loremMulti34",
+      //     answer: ["answer3", "answer4"],
+      //     variant: ["answer1", "answer2", "answer3", "answer4"],
+      //     questionType: "multiple",
+      //   },
+      //   {
+      //     question: "loremMulti14",
+      //     answer: ["answer1", "answer4"],
+      //     variant: ["answer1", "answer2", "answer3", "answer4"],
+      //     questionType: "multiple",
+      //   },
+      //   { question: "loremWritten1", answer: "written1", variant: [], questionType: "custom" },
+      //   { question: "loremWritten2", answer: "written2", variant: [], questionType: "custom" },
+      // ], // default randomQuiz: []
       currentQuiz: 0,
-      isDisabled: true, // default is false
+      isDisabled: false, // default is false
+      // isDisabled: true, // default is false
 
       isActiveModal: false,
       modalData: { title: "", data: {} },

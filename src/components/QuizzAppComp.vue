@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center items-center mt-20">
     <div v-if="!store.isDisabled">
-      <p>Your correct answer {{ store.resultcount }}/10 nice:)</p>
+      <p v-if="store.resultcount">Your correct answer {{ store.resultcount }}/10 nice:)</p>
       <button
         type="button"
         @click="() => beginQuizz()"

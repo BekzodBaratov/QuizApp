@@ -25,7 +25,7 @@
           <RouterLink
             class="relative py-2 before:duration-300 before:absolute before:left-0 before:w-0 hover:before:w-full before:bottom-0 before:border-b before:border-white"
             to="/usersList"
-            >User List</RouterLink
+            >Students List</RouterLink
           >
         </li>
         <li @click="isProfileShow = !isProfileShow" class="relative">

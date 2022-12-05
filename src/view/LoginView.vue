@@ -2,9 +2,6 @@
   <div class="absolute inset-0 flex items-center justify-center">
     <div class="bg-white p-6 w-96 shadow-lg rounded-sm">
       <form>
-        <p class="text-red-500 text-end text-xs">
-          {{ storeForm.loginError.emailOrPassword }}
-        </p>
         <div class="mb-6">
           <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
           <input
@@ -64,10 +61,8 @@ const handleForm = () => {
   storeForm.userList.map((val) => {
     if (val.email === emailRef.value && val.password === passwordRef.value) {
       storeForm.user = val;
-      storeForm.loginError.emailOrPassword = "";
       router.push("/");
     } else {
-      storeForm.loginError.emailOrPassword = "email or password error";
     }
   });
 };
